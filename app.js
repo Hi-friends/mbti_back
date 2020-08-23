@@ -82,9 +82,9 @@ app.use((err, req, res, next) => {
   res.status(500).json({ result: err.message });
 });
 
-init();
+// init();
 
-register();
+// register();
 
 app.listen(4000, () => {
   console.log('Express server');

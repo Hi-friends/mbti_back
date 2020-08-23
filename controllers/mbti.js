@@ -10,12 +10,12 @@ const findSame = async (req, res, next) => {
 
     const findUser = await db.User.findOne({ where: { id: userid } });
     if (findUser) {
-      findMbti = findUser.mbtiId;
+      findMbti = findUser.mbti_title;
     }
     console.log(findMbti);
     const users = await db.User.findAll({
       include: [{ model: db.Mbti, as: 'mbti' }],
-      where: { mbtiId: findMbti },
+      where: { mbti_title: findMbti },
     });
     console.log(users);
     res.json({ result: users });

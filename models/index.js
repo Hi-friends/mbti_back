@@ -30,11 +30,11 @@ const MbtiPoint = require('./MbtiPoint')(sequelize, Sequelize);
 const Board = require('./Board')(sequelize, Sequelize);
 // const Test = require('./Test')(sequelize, Sequelize);
 
-Mbti.hasMany(User, { foreignKey: 'mbtiId', sourceKey: 'id' });
+User.belongsTo(Mbti, { foreignKey: 'mbti_title', sourceKey: 'id' });
 Mbti.hasMany(MbtiPoint, { foreignKey: 'main', sourceKey: 'id' });
 Mbti.hasMany(MbtiPoint, { foreignKey: 'target', sourceKey: 'id' });
 Mbti.hasMany(Board, { foreignKey: 'mbti', sourceKey: 'id' });
-User.belongsTo(Mbti);
+// User.hasOne(Mbti);
 
 const db = {};
 db.sequelize = sequelize;
